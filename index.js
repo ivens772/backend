@@ -14,7 +14,12 @@ const db = mysql.createConnection({
     password: '',
     database: 'empleados_crud'
 });
-
+db.connect((err,con)=>{
+ if(err) console.log("no connection")
+ else{
+   console.log("successfully")
+   }
+})
 app.post('/create', (req, res) => {
     const result = {
         nombre: req.body.nombre,
