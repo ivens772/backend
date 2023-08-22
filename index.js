@@ -9,16 +9,20 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'empleados_crud'
+    host: 'uyu7j8yohcwo35j3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    user: 'm9qs0itfqzhqssp7',
+    password: 'stduzq3orxn0esb2',
+    database: 'en6ennpqmm7h249w'
 });
+//m9qs0itfqzhqssp7:stduzq3orxn0esb2@uyu7j8yohcwo35j3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/en6ennpqmm7h249w
 db.connect((err,con)=>{
  if(err) console.log("no connection")
  else{
    console.log("successfully")
    }
+});
+app.get('/',(req,res)=>{
+    res.send("welcome heroku")
 })
 app.post('/create', (req, res) => {
     const result = {
@@ -45,7 +49,7 @@ app.get('/empleados', (req, res) => {
             console.log(err);
         } else {
             console.log("probando nuevo metodo");
-            res.send(result)
+            res.send("estas en empleados")
         }
     })
 });
